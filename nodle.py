@@ -38,7 +38,6 @@ def start_game():
 
     # user did not guess correct
     if not correct_guess:
-        print(f"The correct guess was: {''.join(generated_word)}")
         t = Text(Point((1 + WORD_LENGTH) * 35 + 10, 500), f"😢 Sorry...\nThe correct word was: {''.join(generated_word).upper()}")
         t.setSize(20)
         t.setFill("black")
@@ -78,7 +77,6 @@ def replay_game():
     
     while True:
         key = win.getKey().lower()
-        print(key)
         if key == 'y':
             return True
         elif key == 'n':
@@ -156,7 +154,7 @@ def show_grid_graphic(guessed_words_list, win):
     letter_offset = rec_size/2
     y = 10
     for word in guessed_words_list:
-        x = rec_size
+        x = rec_size + 10
         for index in range(len(word[0])):
             r = Rectangle(Point(x, y), Point(x + rec_size, y + rec_size))
 
@@ -301,7 +299,7 @@ if __name__ == '__main__':
     show_instructions()
 
     while game_on:
-        win = GraphWin("Nodle", (2 + WORD_LENGTH) * 70, 800)
+        win = GraphWin("Nodle", (2 + WORD_LENGTH) * 70, 700)
         win.setBackground("lightblue")
 
         # User input box
